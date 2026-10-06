@@ -1,1 +1,224 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title>Pattern Recognition in ECG Signals through Benford's Law | Shreyansh Sheth</title> <meta name="author" content="Shreyansh Sheth"> <meta name="description" content="(Exploring the Application of Benford's Law as a Novel Analytical Tool for Assessing ECG Signal Integrity and Anomalies.)"> <meta name="keywords" content="Shreyansh, neuroscience, regulatory-affairs, biomedical-engineering"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?393aa18a83e1506963b146bed9845ba1"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css"> <link rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons"> <link rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?19f3075a2d19613090fe9e16b564e1fe" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A7%A0&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://shreyansh-5.github.io/projects/2_project/"> <link rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?e74e74bf055e5729d44a7d031a5ca6a5" media="none" id="highlight_theme_dark"> <script src="/assets/js/theme.js?96d6b3e1c3604aca8b6134c7afdd5db6"></script> <script src="/assets/js/dark_mode.js?9b17307bb950ffa2e34be0227f53558f"></script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Shreyansh </span>Sheth</a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about</a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects<span class="sr-only">(current)</span></a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">cv</a> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="fa-solid fa-moon"></i> <i class="fa-solid fa-sun"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5"> <div class="post"> <header class="post-header"> <h1 class="post-title">Pattern Recognition in ECG Signals through Benford's Law</h1> <p class="post-description">(Exploring the Application of Benford's Law as a Novel Analytical Tool for Assessing ECG Signal Integrity and Anomalies.)</p> </header> <article> <p><strong>Introductory Presentation</strong></p> <p>You can download the introductory presentation PowerPoint file <a href="/assets/img/Project2/Introductory-Presentation.pptx">here</a></p> </article> </div> </div> <footer class="fixed-bottom"> <div class="container mt-0"> © Copyright 2024 Shreyansh Sheth. Last updated: November 12, 2024 </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script> <script defer src="/assets/js/masonry.js" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?7b30caa5023af4af8408a472dc4e1ebb"></script> <script defer src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script> <script src="/assets/js/no_defer.js?d633890033921b33e0ceb13d22340a9c"></script> <script defer src="/assets/js/common.js?acdb9690d7641b2f8d40529018c71a01"></script> <script defer src="/assets/js/copy_code.js?07b8786bab9b4abe90d10e61f7d12ff7" type="text/javascript"></script> <script type="text/javascript">window.MathJax={tex:{tags:"ams"}};</script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script> <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script type="text/javascript">function progressBarSetup(){"max"in document.createElement("progress")?(initializeProgressElement(),$(document).on("scroll",function(){progressBar.attr({value:getCurrentScrollPosition()})}),$(window).on("resize",initializeProgressElement)):(resizeProgressBar(),$(document).on("scroll",resizeProgressBar),$(window).on("resize",resizeProgressBar))}function getCurrentScrollPosition(){return $(window).scrollTop()}function initializeProgressElement(){let e=$("#navbar").outerHeight(!0);$("body").css({"padding-top":e}),$("progress-container").css({"padding-top":e}),progressBar.css({top:e}),progressBar.attr({max:getDistanceToScroll(),value:getCurrentScrollPosition()})}function getDistanceToScroll(){return $(document).height()-$(window).height()}function resizeProgressBar(){progressBar.css({width:getWidthPercentage()+"%"})}function getWidthPercentage(){return getCurrentScrollPosition()/getDistanceToScroll()*100}const progressBar=$("#progress");window.onload=function(){setTimeout(progressBarSetup,50)};</script> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pattern Recognition in ECG Signals through Benford's Law — Shreyansh Sheth</title>
+  <meta name="description" content="Research documentation: testing whether ECG-derived quantities follow Benford's first-digit law, and whether arrhythmic ECGs deviate from it more than healthy ones. Methods, results, limitations, and IEEE references.">
+  <link rel="canonical" href="https://shreyansh-5.github.io/portfolio-v2/projects/2_project/">
+  <style>
+    :root {
+      --bg: #f7f5f1;
+      --surface: #ffffff;
+      --surface-2: #f1ede7;
+      --ink: #1c2422;
+      --muted: #5c6a68;
+      --faint: #8a9795;
+      --line: #e3ddd4;
+      --accent: #0f766e;
+      --accent-strong: #0d5f59;
+      --accent-soft: #dff0ee;
+      --signal: #c2410c;
+      --shadow: 0 20px 60px rgba(28, 36, 34, .08);
+      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --sans: "Space Grotesk", -apple-system, "Segoe UI", Inter, sans-serif;
+      --mono: "SFMono-Regular", ui-monospace, "Cascadia Code", Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1214;
+        --surface: #111b1e;
+        --surface-2: #172528;
+        --ink: #e8f0ef;
+        --muted: #a9b9b8;
+        --faint: #839493;
+        --line: #304346;
+        --accent: #65d3ca;
+        --accent-strong: #96ebe4;
+        --accent-soft: #173c3a;
+        --signal: #ff966e;
+        --shadow: 0 20px 60px rgba(0, 0, 0, .28);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: var(--sans); line-height: 1.7; font-size: 1.02rem;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+    .crumb { font-size: .9rem; margin-bottom: 2.5rem; }
+    .crumb a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .crumb a:hover { text-decoration: underline; }
+    .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
+    .chip {
+      font-size: .78rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+      padding: .3rem .75rem; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent-strong);
+      border: 1px solid var(--line);
+    }
+    @media (prefers-color-scheme: dark) { .chip { color: var(--accent); } }
+    h1 {
+      font-family: var(--serif); font-weight: 560; letter-spacing: -.015em;
+      font-size: clamp(2rem, 5vw, 3rem); line-height: 1.12; margin: 0 0 1rem;
+    }
+    .lede { font-size: 1.15rem; color: var(--muted); max-width: 62ch; margin: 0 0 3rem; }
+    h2 {
+      font-family: var(--serif); font-weight: 560; letter-spacing: -.01em;
+      font-size: 1.6rem; margin: 3.5rem 0 1rem; padding-top: 2rem;
+      border-top: 1px solid var(--line);
+    }
+    h2 .num { color: var(--faint); font-weight: 400; margin-right: .5rem; }
+    h3 { font-size: 1.1rem; margin: 1.75rem 0 .5rem; }
+    p { margin: 0 0 1.1rem; }
+    .formula {
+      font-family: var(--serif); font-size: 1.35rem; text-align: center;
+      background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+      padding: 1.25rem; margin: 1.5rem 0; box-shadow: var(--shadow);
+    }
+    figure {
+      margin: 2rem 0; background: var(--surface);
+      border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    figure img { display: block; width: 100%; height: auto; }
+    figcaption {
+      padding: 1rem 1.25rem; font-size: .9rem; color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+    figcaption strong { color: var(--ink); }
+    table {
+      width: 100%; border-collapse: collapse; margin: 1.5rem 0;
+      font-size: .95rem; background: var(--surface);
+      border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    th, td { padding: .7rem .9rem; text-align: left; border-bottom: 1px solid var(--line); }
+    th { background: var(--surface-2); font-weight: 700; font-size: .85rem; text-transform: uppercase; letter-spacing: .04em; }
+    tr:last-child td { border-bottom: none; }
+    td.num { font-family: var(--mono); font-size: .88rem; white-space: nowrap; }
+    .callout {
+      background: var(--accent-soft); border-left: 4px solid var(--accent);
+      border-radius: 0 12px 12px 0; padding: 1.1rem 1.25rem; margin: 1.75rem 0;
+    }
+    .callout.warn { background: var(--surface-2); border-left-color: var(--signal); }
+    .callout p { margin: 0; }
+    .callout strong { display: block; margin-bottom: .25rem; }
+    code { font-family: var(--mono); font-size: .88em; background: var(--surface-2); padding: .15em .4em; border-radius: 6px; }
+    .refs { list-style: none; padding: 0; margin: 1.5rem 0 0; counter-reset: ref; }
+    .refs li {
+      counter-increment: ref; margin-bottom: 1rem; padding-left: 3rem; position: relative;
+      font-size: .95rem; line-height: 1.65;
+    }
+    .refs li::before {
+      content: "[" counter(ref) "]"; position: absolute; left: 0; top: 0;
+      font-family: var(--mono); font-weight: 700; color: var(--accent);
+    }
+    .refs em { font-style: italic; }
+    footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--faint); font-size: .85rem; }
+    a { color: var(--accent); }
+    .cite { font-size: .8em; white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="crumb"><a href="../../">← Back to portfolio</a></nav>
+
+    <div class="chips">
+      <span class="chip">Active research</span>
+      <span class="chip">Solo</span>
+      <span class="chip">Oct 2026 – present</span>
+    </div>
+
+    <h1>Pattern Recognition in ECG Signals through Benford's Law</h1>
+    <p class="lede">Does the first-digit distribution of ECG-derived quantities follow Benford's law — and do abnormal ECGs deviate from it more than healthy ones? This page documents the research so far: the question, the data, the pipeline, what the numbers actually say, and where the analysis could still be wrong.</p>
+
+    <h2><span class="num">1</span>Background</h2>
+    <p>Benford's law states that in many naturally occurring datasets, the leading digit <em>d</em> of a number occurs with probability</p>
+    <div class="formula">P(d) = log<sub>10</sub>(1 + 1/d), &nbsp;d = 1 … 9</div>
+    <p>so that 1 appears as the leading digit about 30.1% of the time and 9 only about 4.6%. The law tends to hold for data spanning several orders of magnitude with a right-skewed distribution. Electrocardiograms are an interesting test case: raw ECG amplitudes are roughly symmetric and narrowly ranged (a poor Benford candidate), but <em>derived</em> quantities — deviations from baseline, sample-to-sample changes — may behave differently. The research question is therefore comparative rather than absolute: <strong>do arrhythmic ECGs deviate from Benford's law significantly more than healthy ones?</strong> Framing it as a comparison matters, because it determines which statistics are valid <span class="cite">[1]</span>.</p>
+
+    <h2><span class="num">2</span>Related work</h2>
+    <p>The analysis design leans on five papers, each contributing one load-bearing idea:</p>
+    <p><strong>Chi-square is the wrong gatekeeper.</strong> Kossovsky <span class="cite">[1]</span> shows that the chi-square goodness-of-fit test rejects textbook-Benford datasets (e.g., Oklahoma state expenses: SSD = 0.9 yet χ² = 978.4) while accepting data nowhere near Benford (atomic weights: SSD = 334.9). The test is valid only when each point is randomly and independently sampled from a much larger Benford universe — almost never true of real data. The takeaway adopted here: verdicts rest on <em>distance</em> measures (MAD/SSD), never on chi-square alone; and the compliance-vs-comparison distinction means distance-from-Benford is the right tool when the question is "how far?", not "does it follow?". Kossovsky also motivates precondition checks used in the pipeline: the robust order of magnitude ROM = log<sub>10</sub>(P99/P1) should exceed roughly 2.5–3, the data should be right-skewed, and symmetric distributions are inherently non-Benford regardless of spread — which explains why raw ECG amplitudes failed while |deviation from baseline| worked.</p>
+    <p><strong>Which conformity tests have good properties?</strong> Lesperance <em>et al.</em> <span class="cite">[2]</span> compare Benford conformity tests by simulation and find Pearson's chi-square is not the most powerful under all alternatives; discrete Cramér–von Mises statistics often perform very well, and simultaneous confidence intervals (Goodman; Sison &amp; Glaz) are recommended for <em>seeing where</em> departures occur rather than reducing everything to one p-value. Adopted here as planned upgrades: Cramér–von Mises as a principled alternative test and simultaneous CIs around per-digit proportions on conformity plots.</p>
+    <p><strong>A biological-data precedent.</strong> Morag and Salmon-Divon <span class="cite">[3]</span> analyzed 1,018 single cells across six human cell types and found first digits of gene-expression values clearly adhering to Benford — yet chi-square rejected conformity (p &lt; 10<sup>−16</sup>) over minor deviations. This is the citable defense for trusting MAD over chi-square on large-n biological data: the exact disagreement pattern this project expects to see.</p>
+    <p><strong>Benford-as-distance on time series.</strong> Srivastava, Tiwari, and Singh <span class="cite">[4]</span> introduced the Benford's Law Compliance Test (BLCT) for rotor-stator rub vibration signals, using Euclidean distance of the digit distribution from Benford to segregate chaos from noise — and explicitly named heart-rate/heart-attack analysis as an extension. It is the closest applied precedent for this project: Benford-as-distance on a time series to classify dynamics, with a Euclidean-distance framing equivalent to the SSD/MAD approach used here.</p>
+    <p><strong>The MAD yardstick.</strong> Nigrini's book <span class="cite">[5]</span> (with the earlier Drake and Nigrini treatment <span class="cite">[5]</span>) established the mean absolute deviation — MAD = mean over digits of |observed − Benford| — as the practitioner's conformity measure: sample-size-independent, unlike chi-square. The verdict bands used in this project are adapted from that framework: ≤ 0.006 close conformity, ≤ 0.012 acceptable, ≤ 0.015 marginal, above that non-conformity.</p>
+
+    <h2><span class="num">3</span>Data</h2>
+    <table>
+      <tr><th>Group</th><th>Database</th><th>Records</th><th>Native sampling</th></tr>
+      <tr><td>Healthy</td><td>MIT-BIH Normal Sinus Rhythm (nsrdb)</td><td class="num">18</td><td class="num">128 Hz</td></tr>
+      <tr><td>Arrhythmia</td><td>MIT-BIH Arrhythmia (mitdb)</td><td class="num">48</td><td class="num">360 Hz</td></tr>
+    </table>
+    <p>Both databases were accessed through PhysioNet. Because the two groups were recorded at different sampling rates — and mixing rates was verified in the pilot to silently skew <code>|diff|</code> digit distributions — all records are resampled to a common <strong>250 Hz</strong> before any comparison. The pilot study additionally compared one healthy record (nsrdb 16265) against one arrhythmic record (mitdb 208) end to end.</p>
+
+    <h2><span class="num">4</span>Methods</h2>
+    <p>Each record is analyzed on <strong>lead II</strong>, in three derived features — <code>|amplitude|</code>, <code>|deviation from median|</code>, and <code>|sample-to-sample change|</code> — each computed on the raw signal and on a bandpassed version. Values below 10<sup>−9</sup> mV are dropped before digit extraction (filtered signals contain ~10<sup>−16</sup> numerical noise near zero that would pollute digit counts). Leading digits are extracted vectorially (no per-sample loops), giving on the order of 150k digits per record.</p>
+    <p><strong>Primary metric: MAD.</strong> Mean absolute deviation of the observed digit proportions from Benford, with the bands above. Chi-square is reported for completeness but is <em>not</em> used as a follow/not-follow gate — at n ≈ 150k it rejects nearly everything, which is exactly the failure mode documented in <span class="cite">[1]</span> and <span class="cite">[3]</span>.</p>
+    <p><strong>Group comparison: Mann–Whitney U.</strong> The U test is used in its valid role: asking whether the healthy and arrhythmia groups <em>differ in Benford conformity</em> (per-record MADs as the observations). It cannot test one signal against Benford's law — that is what MAD is for. Planned additions: ROM and skewness precondition checks <span class="cite">[1]</span> and simultaneous confidence intervals on the conformity plots <span class="cite">[2]</span>.</p>
+
+    <h2><span class="num">5</span>Results</h2>
+
+    <h3>Pilot (1 healthy vs 1 arrhythmic record)</h3>
+    <p>The pilot established the feature-selection logic: raw <code>|amplitude|</code> and RR intervals fell in the non-conformity band for <em>both</em> records — expected, since symmetric, narrow-range data cannot be Benford <span class="cite">[1]</span> — while <code>|deviation from baseline|</code> reached the acceptable-conformity band in both. The pilot's real contribution was methodological: it proved the pipeline runs end to end on real PhysioNet data and exposed the sampling-rate confound that v2 fixes.</p>
+
+    <h3>v2: group comparison (18 healthy vs 48 arrhythmia)</h3>
+    <p>The strongest and most consistent separation appears for <code>|sample-to-sample change|</code>:</p>
+    <table>
+      <tr><th>Preparation</th><th>Healthy median MAD</th><th>Arrhythmia median MAD</th><th>Mann–Whitney p</th></tr>
+      <tr><td>Raw</td><td class="num">0.0073</td><td class="num">0.0171</td><td class="num">3.36 × 10⁻⁸</td></tr>
+      <tr><td>Bandpassed</td><td class="num">0.0062</td><td class="num">0.0107</td><td class="num">3.10 × 10⁻⁴</td></tr>
+    </table>
+    <figure>
+      <img src="v2_mean_mad.png" alt="Mean per-record MAD by group, feature, and preparation; red dashed line marks the 0.015 marginal-conformity boundary.">
+      <figcaption><strong>Fig. 1.</strong> Mean per-record MAD by group, feature, and preparation. The red dashed line marks the 0.015 marginal-conformity boundary. <code>|sample-to-sample change|</code> (right panel) shows the cleanest group separation; <code>|amplitude|</code> (left) is non-conforming for everyone, as theory predicts.</figcaption>
+    </figure>
+    <figure>
+      <img src="v2_digit_hist.png" alt="Leading-digit histograms for the median-MAD record in each group (healthy 16786, arrhythmia 119) for bandpassed |deviation from median|, against the Benford expectation.">
+      <figcaption><strong>Fig. 2.</strong> Leading-digit distributions of bandpassed <code>|deviation from median|</code> for the median-MAD record in each group (healthy 16786; arrhythmia 119), against the Benford expectation. Both track the theoretical curve, with visibly larger departures in the arrhythmic record.</figcaption>
+    </figure>
+
+    <h3>Robustness: is the <code>|diff|</code> separation a resampling artefact?</h3>
+    <p>Healthy records are upsampled (128 → 250 Hz) while arrhythmia records are downsampled (360 → 250 Hz) — different operations per group. To rule out a processing artefact, the comparison was repeated at <strong>native</strong> sampling rates using the fs-normalized slope magnitude <code>|dV/dt| = |diff| × fs</code> (mV/s), which needs no resampling at all:</p>
+    <table>
+      <tr><th>Feature (native fs)</th><th>Healthy median MAD</th><th>Arrhythmia median MAD</th><th>Mann–Whitney p</th></tr>
+      <tr><td><code>|diff|</code> (fs-confounded)</td><td class="num">0.018</td><td class="num">0.070</td><td class="num">≈ 8 × 10⁻¹⁰</td></tr>
+      <tr><td><code>|dV/dt|</code> (fs-normalized)</td><td class="num">0.033</td><td class="num">0.079</td><td class="num">≈ 5 × 10⁻¹⁰</td></tr>
+    </table>
+    <p>The separation survives normalization, so it is physiological rather than a resampling artefact.</p>
+    <div class="callout">
+      <strong>How to read the headline result</strong>
+      <p>On <code>|sample-to-sample change|</code>, <em>neither</em> group closely follows Benford in absolute terms. The finding is relative: arrhythmic records deviate from Benford <strong>significantly more</strong> than healthy ones. Any framing stronger than that would overclaim what the data show.</p>
+    </div>
+
+    <h2><span class="num">6</span>Validity and limitations</h2>
+    <div class="callout warn">
+      <strong>Biggest threat: the database confound</strong>
+      <p>The two groups come from different databases, recorded in different eras, on different hardware, with likely different age distributions. That confound is a bigger threat to the conclusion than the unequal group sizes (18 vs 48) — Mann–Whitney and Kruskal–Wallis do not require equal n.</p>
+    </div>
+    <p>Further caveats: consecutive ECG samples are autocorrelated and do not satisfy chi-square's independent-sampling assumptions, which is why the analysis uses a distance-from-Benford <em>comparison</em> framing with MAD as the primary measure <span class="cite">[1]</span>. These are exploratory dataset-level findings, not yet evidence that abnormal ECG universally violates Benford's law. The planned multi-category extension (healthy / MI / arrhythmia / further abnormalities) under a single recording protocol is designed to address the database confound directly.</p>
+
+    <h2><span class="num">7</span>Next steps</h2>
+    <p><strong>More categories, one protocol.</strong> Add an MI (myocardial infarction) group via the PTB Diagnostic ECG Database (1000 Hz, with healthy controls), resampled to 250 Hz for comparability. The cleaner long-term source is PTB-XL, which provides normal, MI, and conduction-disorder records all at 500 Hz under one recording protocol — neutralizing sampling-rate and hardware confounds across groups.</p>
+    <p><strong>More features.</strong> Wavelet detail coefficients (spanning many orders of magnitude — strong Benford candidates) and second-digit Benford analysis. Longer analysis windows (full 30-minute records) once the pipeline is trusted.</p>
+    <p><strong>Confound checks first.</strong> Before interpreting any separating feature: rule out age, sex, QRS amplitude, and record length as drivers. Then the planned statistical upgrades: ROM/skewness preconditions <span class="cite">[1]</span> and simultaneous confidence intervals <span class="cite">[2]</span>.</p>
+    <p><strong>Reproducibility.</strong> Analysis in Python (wfdb, NumPy, SciPy, matplotlib); the pipeline lives in <code>benford_ecg_v2.ipynb</code>, tested end to end on all 66 records.</p>
+
+    <h2><span class="num">8</span>References</h2>
+    <ol class="refs">
+      <li>A. E. Kossovsky, "On the mistaken use of the chi-square test in Benford's law," <em>Stats</em>, vol. 4, no. 2, pp. 419–453, 2021.</li>
+      <li>M. Lesperance, W. J. Reed, M. A. Stephens, C. Tsao, and B. Wilton, "Assessing conformance with Benford's law: goodness-of-fit tests and simultaneous confidence intervals," <em>PLOS ONE</em>, vol. 11, no. 3, e0151235, 2016.</li>
+      <li>S. Morag and M. Salmon-Divon, "Characterizing human cell types and tissue origin using the Benford law," <em>Cells</em>, vol. 8, no. 9, 1004, 2019.</li>
+      <li>A. K. Srivastava, M. Tiwari, and A. Singh, "Composite test inclusive of Benford's law, noise reduction and 0-1 test for effective detection of chaos in rotor-stator rub," arXiv:2103.13948 [physics.data-an], 2021.</li>
+      <li>M. J. Nigrini, <em>Benford's Law: Applications for Forensic Accounting, Auditing, and Fraud Detection</em>. Hoboken, NJ, USA: Wiley, 2012; P. D. Drake and M. J. Nigrini, "Computer assisted analytical procedures using Benford's law," <em>J. Accounting Education</em>, vol. 18, no. 2, pp. 127–146, 2000.</li>
+    </ol>
+
+    <footer>
+      Shreyansh Sheth · Pattern recognition in ECG signals through Benford's law · Documentation of ongoing solo research, Oct 2026.
+      Results are exploratory; see §6 before citing.
+    </footer>
+  </div>
+</body>
+</html>
